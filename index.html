@@ -243,12 +243,7 @@ nav {
     position: relative;
 }
 
-.hero h1 {
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
-    background-color: #FF6584;
-}
+
 
 .hero p {
     font-size: 1.2rem;
@@ -1397,6 +1392,14 @@ footer {
         }
     }
 
+    .mainhead {
+     margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    color: #3db0e9;
+    font-size: 6vh;
+    }
+
            </style>
 </head>
 <body>
@@ -1427,7 +1430,7 @@ footer {
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Wizora Studio</h1>
+            <h2 class="mainhead">Wizora Studio</h2>
             <p>Wizora Studio creates immersive digital experiences that captivate audiences and drive results. We blend creativity with technology to transform your vision into reality.</p>
             
             <div class="hero-buttons">
@@ -1689,8 +1692,9 @@ footer {
                 <h3>Contact Us</h3>
                 <ul class="footer-links">
                     <li><a href="mailto:wizorastudio@outlook.com"><i class="fas fa-envelope"></i>wizorastudio@outlook.com</a></li>
-                                        <li><a href="#"><i class="fas fa-clock"></i>Active</a></li>
-                    <li><a href="tel:+11234567890"><i class="fas fa-phone"></i> 000 000 0000</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i>Active</a></li>
+                    <li><a href="tel:+11234567890"><i class="fas fa-phone"></i>+91 000 000 0000</a></li>
+
                 </ul>
             </div>
         </div>
@@ -1944,7 +1948,14 @@ footer {
             const text = heroText.textContent;
             heroText.innerHTML = '';
             
-          
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = text[i];
+                span.style.animationDelay = `${i * 0.05}s`;
+                span.classList.add('fade-in-letter');
+                heroText.appendChild(span);
+            }
+        }
 
 
         // Process step animation
